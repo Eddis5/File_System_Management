@@ -4,21 +4,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Ejercicio1 {
     private static void imprimirFichero(File e) {
-
         //No imprime los ficheros/directorios ocultos
-        int i=0;  if (!e.isHidden()) {
+        if (!e.isHidden()) {
 
             if (e.isFile()) {
 
                 System.out.println(e.getName() + " " + e.length());
 
             }
-
             if (e.isDirectory()){
-                System.out.println((e.getName() + " <Directorio>"));
+                System.out.println(((e.getName() + " <Directorio>")));
 
             }
 
@@ -27,17 +26,14 @@ public class Ejercicio1 {
     }
 
     private static void imprimirDirectorio(File f) throws IOException {
-
         if (f.exists()) {
 
             if (f.isDirectory()) {
 
                 for (File e : f.listFiles()){
-
                     imprimirFichero(e);
-
                 }
-
+                System.out.println("Introduce el directorio del cual quieres ver los directorios:");
             } else {
 
                 System.out.println("No es un directorio");
@@ -53,31 +49,34 @@ public class Ejercicio1 {
     }
     public void navegadorDirectorios() throws IOException {
 
-        String ent = "/";
 
-        File f = new File(ent);
 
-        System.out.println("Lista de ficheros y directorios del directorio: " + ent);
+            String ent = "/";
 
-        System.out.println("---------------------------------------------------");
+            File f = new File(ent);
 
-        imprimirDirectorio(f);
+            System.out.println("Lista de ficheros y directorios del directorio: " + ent);
 
-        String ent2 = new BufferedReader(new InputStreamReader(System.in)).readLine();
-        System.out.println("Lista de ficheros y directorios del directorio: " + ent2);
+            System.out.println("---------------------------------------------------");
 
-        System.out.println("---------------------------------------------------");
+            imprimirDirectorio(f);
 
-        File f2 = new File(ent2);
+            String ent2 = new BufferedReader(new InputStreamReader(System.in)).readLine();
+            System.out.println("Lista de ficheros y directorios del directorio: " + ent2);
 
-        try {
+            System.out.println("---------------------------------------------------");
 
-            imprimirDirectorio(f2);
+            File f2 = new File(ent2);
 
-        } catch(IOException e) {
+            try {
 
-            System.out.println("No existe el directorio");
-        }
+                imprimirDirectorio(f2);
+
+            } catch (IOException e) {
+
+                System.out.println("No existe el directorio");
+            }
+
     }
 
 }
