@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class Ejercicio1 {
 
-    private static void imprimirDirectorio(File f) throws IOException {
+    public static void imprimirDirectorio(File f) throws IOException {
         int i=0;
         if (f.exists()) {
 
@@ -46,7 +46,7 @@ public class Ejercicio1 {
     }
 
 
-    public void navegadorDirectorios() throws IOException {
+    public static void navegadorDirectorios() throws IOException {
 
         String ent = "/";
 
