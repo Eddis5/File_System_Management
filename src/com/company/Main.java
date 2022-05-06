@@ -26,7 +26,11 @@ public class Main {
                 }
             }else if(decision==-1){
                 break;
-            }else {
+            }else if(decision>numeroFicheros(file)){
+                System.out.println("No hay tantos directorios");
+                Ejercicio1.imprimirDirectorio(file);
+            }
+            else{
                 if (file.isDirectory() && !file.isHidden()) {
                     file = file.listFiles()[decision - 1];
                     Ejercicio1.imprimirDirectorio(file);
@@ -34,8 +38,9 @@ public class Main {
             }
         }
 
+    }
 
-
-
+    public static int numeroFicheros(File f){
+        return f.listFiles().length;
     }
 }
