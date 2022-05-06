@@ -6,35 +6,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Ejercicio1 {
-    private static void imprimirFichero(File e) {
-
-        //No imprime los ficheros/directorios ocultos
-        int i=0;  if (!e.isHidden()) {
-
-            if (e.isFile()) {
-
-                System.out.println(e.getName() + " " + e.length());
-
-            }
-
-            if (e.isDirectory()){
-                System.out.println((e.getName() + " <Directorio>"));
-
-            }
-
-        }
-
-    }
 
     private static void imprimirDirectorio(File f) throws IOException {
-
+        int i=0;
         if (f.exists()) {
 
             if (f.isDirectory()) {
 
                 for (File e : f.listFiles()){
+                    i++;
+                    if (!f.isHidden()) {
 
-                    imprimirFichero(e);
+                        if (f.isFile()) {
+
+                            System.out.println(e.getName() + " " + e.length());
+
+                        }
+
+                        if (e.isDirectory()){
+                            System.out.println((i+"-"+e.getName() + " <Directorio>"));
+
+                        }
+
+                    }
 
                 }
 
@@ -51,6 +45,7 @@ public class Ejercicio1 {
         }
 
     }
+
     public void navegadorDirectorios() throws IOException {
 
         String ent = "/";
