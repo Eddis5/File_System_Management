@@ -25,7 +25,6 @@ public class Ejercicio1 {
 
                         if (e.isDirectory()){
                             System.out.println((i+"-"+e.getName() + " <Directorio>"));
-
                         }
 
                     }
