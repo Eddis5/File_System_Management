@@ -44,7 +44,9 @@ public class Ejercicio1 {
         }
 
     }
-
+    public static int numeroFicheros(File f){
+        return f.listFiles().length;
+    }
 
     public static void navegadorDirectorios() throws IOException {
 
